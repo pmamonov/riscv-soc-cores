@@ -11,6 +11,7 @@ depend =
   gpio
   wb_intercon-1.0
   riscv-nmon
+  blink
 
 simulators = icarus
 

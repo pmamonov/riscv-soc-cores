@@ -84,6 +84,18 @@ wire [31:0] wb_s2m_gpio0_dat;
 wire        wb_s2m_gpio0_ack;
 wire        wb_s2m_gpio0_err;
 wire        wb_s2m_gpio0_rty;
+wire [31:0] wb_m2s_blink0_adr;
+wire [31:0] wb_m2s_blink0_dat;
+wire  [3:0] wb_m2s_blink0_sel;
+wire        wb_m2s_blink0_we;
+wire        wb_m2s_blink0_cyc;
+wire        wb_m2s_blink0_stb;
+wire  [2:0] wb_m2s_blink0_cti;
+wire  [1:0] wb_m2s_blink0_bte;
+wire [31:0] wb_s2m_blink0_dat;
+wire        wb_s2m_blink0_ack;
+wire        wb_s2m_blink0_err;
+wire        wb_s2m_blink0_rty;
 wire [31:0] wb_m2s_sdram_reserved_adr;
 wire [31:0] wb_m2s_sdram_reserved_dat;
 wire  [3:0] wb_m2s_sdram_reserved_sel;
@@ -184,6 +196,18 @@ wb_intercon wb_intercon0
     .wb_gpio0_ack_i          (wb_s2m_gpio0_ack),
     .wb_gpio0_err_i          (wb_s2m_gpio0_err),
     .wb_gpio0_rty_i          (wb_s2m_gpio0_rty),
+    .wb_blink0_adr_o         (wb_m2s_blink0_adr),
+    .wb_blink0_dat_o         (wb_m2s_blink0_dat),
+    .wb_blink0_sel_o         (wb_m2s_blink0_sel),
+    .wb_blink0_we_o          (wb_m2s_blink0_we),
+    .wb_blink0_cyc_o         (wb_m2s_blink0_cyc),
+    .wb_blink0_stb_o         (wb_m2s_blink0_stb),
+    .wb_blink0_cti_o         (wb_m2s_blink0_cti),
+    .wb_blink0_bte_o         (wb_m2s_blink0_bte),
+    .wb_blink0_dat_i         (wb_s2m_blink0_dat),
+    .wb_blink0_ack_i         (wb_s2m_blink0_ack),
+    .wb_blink0_err_i         (wb_s2m_blink0_err),
+    .wb_blink0_rty_i         (wb_s2m_blink0_rty),
     .wb_sdram_reserved_adr_o (wb_m2s_sdram_reserved_adr),
     .wb_sdram_reserved_dat_o (wb_m2s_sdram_reserved_dat),
     .wb_sdram_reserved_sel_o (wb_m2s_sdram_reserved_sel),

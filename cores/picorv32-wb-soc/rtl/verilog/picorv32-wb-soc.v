@@ -194,7 +194,7 @@ module picorv32_wb_soc #(
 	gpio gpio0 (
 		// GPIO bus
 		.gpio_i		(gpio0_i),
-		.gpio_o		(gpio0_o),
+		.gpio_o		(),
 		.gpio_dir_o	(gpio0_dir_o),
 
 		// Wishbone slave interface
@@ -212,6 +212,28 @@ module picorv32_wb_soc #(
 
 		.wb_clk		(wb_clk),
 		.wb_rst		(wb_rst)
+	);
+
+	blink #(
+		.CLK_HZ(24000000)
+	)
+	blink0 (
+		.led_o(gpio0_o[0]),
+
+		.wb_adr_i	(wb_m2s_blink0_adr),
+		.wb_dat_i	(wb_m2s_blink0_dat),
+		.wb_we_i	(wb_m2s_blink0_we),
+		.wb_cyc_i	(wb_m2s_blink0_cyc),
+		.wb_stb_i	(wb_m2s_blink0_stb),
+		.wb_cti_i	(wb_m2s_blink0_cti),
+		.wb_bte_i	(wb_m2s_blink0_bte),
+		.wb_dat_o	(wb_s2m_blink0_dat),
+		.wb_ack_o	(wb_s2m_blink0_ack),
+		.wb_err_o	(wb_s2m_blink0_err),
+		.wb_rty_o	(wb_s2m_blink0_rty),
+
+		.wb_clk_i	(wb_clk),
+		.wb_rst_i	(wb_rst)
 	);
 
 	picorv32_wb #(
