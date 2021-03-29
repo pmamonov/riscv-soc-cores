@@ -1,0 +1,18 @@
+CAPI=2:
+
+name: blink
+
+filesets:
+  rtl:
+    files:
+      - blink.v
+    file_type: verilogSource
+
+targets:
+  default: &default
+    filesets:
+      - rtl
+    toplevel: blink
+
+  synth:
+    <<: *default
