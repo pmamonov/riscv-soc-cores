@@ -147,18 +147,14 @@ class quartus_rpt():
 
 data = []
 for (quartuss, boards) in (
-        (("13.0",), ("core-ep2c5", "de1")),
-        (("13.0", "13.1",), ("marsohod2",)),
-        (("13.1", "17.1"), ("marsohod2bis", "marsohod2rpi",
-                            "core-ep4ce6", "de0-nano")),
-        (("17.1",), ("marsohod3", "marsohod3bis", "c10lp-evkit")),
+        (("13.1",), ("marsohod2",)),
                         ):
 
     for qv in quartuss:
         for b in boards:
 
             SYSTEM = "%s-picorv32-wb-soc" % (b,)
-            filepref = "build.q%s/%s_0/bld-quartus/%s_0" % (qv, SYSTEM, SYSTEM)
+            filepref = "build/%s_0/bld-quartus/%s_0" % (SYSTEM, SYSTEM)
             q = quartus_rpt(filepref)
 
             data.append(q.data_tuple())
